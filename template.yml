@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: SVG resize service
+
+Resources:
+  MyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda_handler.lambda_handler
+      Runtime: ruby3.3
+      Events:
+        Icon:
+          Type: Api
+          Properties:
+            Path: /icon
+            Method: get
