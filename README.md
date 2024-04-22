@@ -1,52 +1,61 @@
-# anysvg
-Simple service for rendering sized and colored svgs
+# AnySVG
 
+AnySVG is a service that allows you to fetch SVG icons from various sources and use them in your applications. It supports Simple Icons, GitHub Octicons, and Bootstrap Icons.
 
-## Services
+## Usage
 
-### simpleicons
+To use AnySVG, you make a GET request to the service endpoint with the appropriate parameters.
 
-```
-/icon?size=16&service=simpleicons&icon=appsignal&color=DC657D
-```
+### Simple Icons
 
-### octicon
+To fetch a Simple Icon, use the following format:
 
 ```
-/icon?service=octicon&icon=project-16
+/si/{size}/{icon}?color={color}
 ```
 
-## Any SVG
-```
-/icon?size=16&url="http://some-domain.com/path-to-some.svg"
-```
+Replace `{size}` with the desired size of the icon, `{icon}` with the name of the icon, and `{color}` with the desired color (in hex format without the `#`).
 
+### GitHub Octicons
 
-### GitHub Markdown
+To fetch a GitHub Octicon, use the following format:
 
 ```
-![jira](https://anysvg.io/icon?size=16&service=simpleicons&icon=jira)
+/gh/{size}/{icon}?color={color}
 ```
 
+Replace `{size}` with the desired size of the icon, `{icon}` with the name of the icon, and `{color}` with the desired color (in hex format without the `#`).
 
-## Development
+### Bootstrap Icons
 
-This will start a web server on localhost:9292.
-
-```
-rackup
-```
-
-
-## Deployment
-
-1. Install the AWS SAM CLI if you haven't already. You can find instructions on the [official AWS documentation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html).
+To fetch a Bootstrap Icon, use the following format:
 
 ```
-sam build
+/bs/{size}/{icon}?color={color}
 ```
 
-2. Deploy your application with the sam deploy --guided command:
+Replace `{size}` with the desired size of the icon, `{icon}` with the name of the icon, and `{color}` with the desired color (in hex format without the `#`).
+
+## Examples
+
+Here are some examples of how to use AnySVG in a Markdown document:
+
+### Simple Icons
+
+```markdown
+![jira](https://anysvg.io/si/24/jira?color=ff0000)
 ```
-sam deploy --guided
+
+### GitHub Octicons
+
+```markdown
+![project](https://anysvg.io/gh/16/project?color=ff0000)
 ```
+
+### Bootstrap Icons
+
+```markdown
+![alarm](https://anysvg.io/bs/24/alarm-fill?color=ff0000)
+```
+
+Please replace `https://anysvg.io` with the actual URL of your AnySVG service.
