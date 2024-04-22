@@ -56,6 +56,8 @@ class App < Sinatra::Base
         svg_element['height'] = size.to_s
       end
 
+      svg_element['class'] = 'octicon'
+
       svg_element['fill'] = "##{color}"
 
       content_type 'image/svg+xml'
