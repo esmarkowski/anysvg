@@ -1,0 +1,4 @@
+.env
+.ruby-lsp/
+*.cert
+*.key

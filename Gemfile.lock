@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     base64 (0.2.0)
+    connection_pool (2.4.1)
     mini_portile2 (2.8.6)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
@@ -18,6 +19,10 @@ GEM
     rackup (2.1.0)
       rack (>= 3)
       webrick (~> 1.8)
+    redis (5.2.0)
+      redis-client (>= 0.22.0)
+    redis-client (0.22.1)
+      connection_pool
     ruby2_keywords (0.0.5)
     sinatra (4.0.0)
       mustermann (~> 3.0)
@@ -35,6 +40,7 @@ DEPENDENCIES
   nokogiri
   rack
   rackup
+  redis
   sinatra
 
 RUBY VERSION
