@@ -13,6 +13,7 @@ class App < Sinatra::Base
   end
 
   get '/:service/:size/:icon' do
+    content_type 'image/svg+xml'
     cache(request.url) do
       size = params['size'].to_i || 16
       service = params['service']
@@ -38,6 +39,8 @@ class App < Sinatra::Base
   end
 
   get '/icon' do
+    content_type 'image/svg+xml'
+
     cache(request.url) do
       size = params['size'].to_i
       url = params['url']
@@ -77,7 +80,6 @@ class App < Sinatra::Base
 
       svg_element['fill'] = "##{color}"
 
-      content_type 'image/svg+xml'
       doc.to_xml
     rescue => e
       status 500
